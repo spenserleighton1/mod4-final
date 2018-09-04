@@ -59,11 +59,20 @@ app.post('/api/v1/ideas', (request, response) => {
 
 app.delete('/api/v1/ideas/:id', (request, response) => {
   database('ideas').where('id', request.params.id).del()
-  .then(() => {
-    response.status(202).json({
-      'id': request.params.id
+    .then(id => {
+      if (id) {
+          response.status(202).json({
+            'id': request.params.id
+          });
+      } else {
+        response.status(404).json({
+          error: `Could not find an idea with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error })
     });
-  });
 })
 
 
@@ -74,3 +83,5 @@ app.locals.title = 'Idea Box';
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
+
+module.exports = app;

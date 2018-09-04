@@ -29,6 +29,18 @@ module.exports = {
     }
   },
 
+  test: {
+    client: 'pg',
+    connection: 'postgres://localhost/test_ideas',
+    migrations: {
+      directory: './db/migrations'
+    },
+    seeds: {
+      directory: './db/seeds/test'
+    },
+    useNullAsDefault: true
+  },
+
 production: {
   client: 'pg',
   connection: process.env.DATABASE_URL + `?ssl=true`,
