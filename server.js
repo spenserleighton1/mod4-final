@@ -77,7 +77,7 @@ app.delete('/api/v1/ideas/:id', (request, response) => {
 
 
 app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Idea Box';
+app.locals.title = 'Idea Box/Bucket list';
 
 app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
