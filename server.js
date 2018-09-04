@@ -39,7 +39,6 @@ app.get('/api/v1/ideas/:id', (request, response) => {
 
 app.post('/api/v1/ideas', (request, response) => {
   const idea = request.body;
-  console.log(idea)
 
   for (let requireParameter of ['title', 'body']) {
     if (!idea[requireParameter]) {

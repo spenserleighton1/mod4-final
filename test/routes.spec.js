@@ -102,4 +102,23 @@ describe('/api/v1/ideas', () => {
         done();
       }); 
   })
+
+  it('should display html', done => {
+    chai.request(server)
+      .get('/')
+      .end((error, response) => {
+        response.should.have.status(200);
+        response.should.be.html;
+        done();
+      });
+  });
+
+  it('should return 404 on that sad path', done => {
+    chai.request(server)
+      .get('/ :(')
+      .end((error, response) => {
+        response.should.have.status(404);
+        done();
+      });
+  });
 });
