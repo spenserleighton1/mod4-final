@@ -20,8 +20,26 @@ app.get('/api/v1/ideas', (request, response) => {
     })
 });
 
+app.get('/api/v1/ideas/:id', (request, response) => {
+  database('ideas').where('id', request.params.id).select()
+    .then(ideas => {
+      if (ideas.length) {
+        response.status(200).json(ideas);
+      } else {
+        response.status(404).json({
+          error: `Could not find an idea with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error })
+    });
+});
+
+
 app.post('/api/v1/ideas', (request, response) => {
   const idea = request.body;
+  console.log(idea)
 
   for (let requireParameter of ['title', 'body']) {
     if (!idea[requireParameter]) {

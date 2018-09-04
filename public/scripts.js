@@ -48,7 +48,7 @@ function deleteIdea() {
 
   $(this).closest('article').remove()
 }
-
+""
 function displayIdeas(ideas) {
   return ideas.map(idea => {
     $('#displayed-ideas').append(`
