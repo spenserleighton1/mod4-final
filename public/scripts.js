@@ -1,5 +1,7 @@
-const submitBtn = $('#submit-btn')
+const submitBtn = $('#submit-btn');
+const deleteBtn = $('#displayed-ideas')
 submitBtn.on('click', postIdea)
+deleteBtn.on('click', '.delete-btn', deleteIdea);
 
 fetchIdeas()
 
@@ -37,12 +39,23 @@ function fetchSingleIdea(id) {
     .then(idea => idea)
 }
 
+function deleteIdea() {
+  let ideaId = $(this).closest('article').attr('id');
+
+  fetch(`/api/v1/ideas/${ideaId}`, {
+    method: 'DELETE'
+  });
+
+  $(this).closest('article').remove()
+}
+
 function displayIdeas(ideas) {
   return ideas.map(idea => {
     $('#displayed-ideas').append(`
       <article id="${idea.id}">
         <h2>${idea.title}</h2>
         <p>${idea.body}</p>
+        <button class="delete-btn">Delete</button>
       </article>
     `)
   })
