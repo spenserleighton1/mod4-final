@@ -45,6 +45,8 @@ width: 40vw;
 
 .delete-btn {
   bottom: 2px;
+  position: relative;
+  top: 80px;
   width: 50px;
 }
 
@@ -62,4 +64,12 @@ width: 40vw;
 #displayed-ideas {
   width: 
   margin: 0 auto;
+}
+
+button {
+  background-color: #B0E0E6;
+}
+
+button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
