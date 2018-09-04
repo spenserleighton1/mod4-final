@@ -1,11 +1,19 @@
 * {
   font-family: 'Roboto', sans-serif;
   margin: 0 auto;
-  width: 50vw;
+  /*width: 50vw;*/
+}
+
+body {
+  background-image: url("./images/bunnies.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 header {
 margin: 1em auto;
+text-shadow: 0 0 8px #B0E0E6;
+width: 40vw;
 }
 
 
@@ -15,7 +23,7 @@ margin: 1em auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  margin: 1em auto;
   padding: 1em;
   width: 40vw;
 }
@@ -54,8 +62,4 @@ margin: 1em auto;
 #displayed-ideas {
   width: 
   margin: 0 auto;
-}
-
-#idea-container-label {
-  margin: 1em 0;
 }
