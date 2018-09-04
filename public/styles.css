@@ -30,8 +30,8 @@ width: 40vw;
 
 #title-input,
 #body-input {
-  margin-bottom: .25em;
   font-size: 1.25em; 
+  margin-bottom: .25em;
   width: 300px;
 }
 
@@ -53,17 +53,24 @@ width: 40vw;
 .idea-card {
   background-color: #FFE9E9;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 150px;
   margin-bottom: 1em;
   padding: .5em;
   width: 40vw;
-  height: 150px;
 }
 
 .idea-card h2 {}
 
 #displayed-ideas {
-  width: 
   margin: 0 auto;
+  width: 
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 30vw;
 }
 
 button {
