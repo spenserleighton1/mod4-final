@@ -57,7 +57,7 @@ function deleteIdea() {
 function displayIdeas(ideas) {
   return ideas.map(idea => {
     $('#displayed-ideas').append(`
-      <article id="${idea.id}">
+      <article class="idea-card" id="${idea.id}">
         <h2>${idea.title}</h2>
         <p>${idea.body}</p>
         <button class="delete-btn">Delete</button>
