@@ -1,7 +1,7 @@
 // Update with your config settings.
 
 module.exports = {
-    development: {
+  development: {
     client: 'pg',
     connection: 'postgres://localhost/ideabox',
     migrations: {
