@@ -10,6 +10,10 @@ function postIdea(e) {
   let title = $('#title-input').val()
   let body = $('#body-input').val()
 
+  if (title === '' || body === '') {
+    return alert('Please fill out required fields.')
+  } 
+
   let idea = { title, body }
 
   fetch('/api/v1/ideas', {
@@ -20,10 +24,11 @@ function postIdea(e) {
       body: JSON.stringify(idea)
     })
       .then(response => response.json())
-      .then(a => fetchSingleIdea(a.id))
+      .then(results => fetchSingleIdea(results.id))
       .then(idea => displayIdeas(idea))
-  // $('#idea-form').reset()
-  // return fetchIdeas()
+
+  $('#title-input').val('')
+  $('#body-input').val('')
 
 }
 
@@ -48,7 +53,7 @@ function deleteIdea() {
 
   $(this).closest('article').remove()
 }
-""
+
 function displayIdeas(ideas) {
   return ideas.map(idea => {
     $('#displayed-ideas').append(`
