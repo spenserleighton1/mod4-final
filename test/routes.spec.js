@@ -23,11 +23,15 @@ describe('/api/v1/ideas', () => {
     chai.request(server)
       .get('/api/v1/ideas')
       .end((error, response) => {
+        response.body.length.should.equal(1)
         response.should.have.status(200);
         response.should.be.json;
         response.body[0].id.should.be.a('number')
         response.body[0].title.should.be.a('string')
         response.body[0].body.should.be.a('string')
+        response.body[0].id.should.equal(1)
+        response.body[0].title.should.equal('idea one')
+        response.body[0].body.should.equal('Hey, you know what? I really hope this works...')
         done();
       });
   });
@@ -36,11 +40,15 @@ describe('/api/v1/ideas', () => {
     chai.request(server)
       .get('/api/v1/ideas/1')
       .end((error, response) => {
+        response.body.length.should.equal(1)
         response.should.have.status(200);
         response.should.be.json;
         response.body[0].id.should.be.a('number')
         response.body[0].title.should.be.a('string')
         response.body[0].body.should.be.a('string')
+        response.body[0].id.should.equal(1)
+        response.body[0].title.should.equal('idea one')
+        response.body[0].body.should.equal('Hey, you know what? I really hope this works...')
         done();
       });
   });
@@ -66,6 +74,7 @@ describe('/api/v1/ideas', () => {
         response.should.have.status(201)
         response.body.id.should.be.a('number');
         response.body.should.be.a('object');
+        response.body.id.should.equal(2)
         done();
       });
   });
@@ -87,7 +96,8 @@ describe('/api/v1/ideas', () => {
     chai.request(server)
       .delete('/api/v1/ideas/1')
       .end((error, response) => {
-        response.should.have.status(202)
+        response.should.have.status(200)
+        response.body.should.be.a('object');
         response.body.id.should.equal('1')
         done();
       }); 

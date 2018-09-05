@@ -60,7 +60,7 @@ app.delete('/api/v1/ideas/:id', (request, response) => {
   database('ideas').where('id', request.params.id).del()
     .then(id => {
       if (id) {
-          response.status(202).json({
+          response.status(200).json({
             'id': request.params.id
           });
       } else {
